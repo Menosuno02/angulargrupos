@@ -1,0 +1,31 @@
+<div id="contenedor-principal">
+  <div id="izquierda">
+    <!-- Contenido del div izquierdo -->
+    <h2>Alumnos</h2>
+    <ul class="cajaul">
+      <li *ngFor="let alumno of alumnos">
+        {{ alumno.nombre }} {{ alumno.apellidos }}
+      </li>
+    </ul>
+    <div id="contenedor-botones">
+      <button (click)="generarGrupos()">Magia</button>
+      <button (click)="devolverAlumnos()">A jugar</button>
+      <button [disabled]="alumnos.length > 0" (click)="openPDF()">
+        Generar Informe
+      </button>
+    </div>
+  </div>
+
+  <div id="derecha">
+    <!-- Contenido del div derecho -->
+    <h2>Alumnos restantes: {{ this.alumnos.length }}</h2>
+    <div class="calumnosgrande">
+      <div class="caja" *ngFor="let grupo of grupos; let i = index">
+        Caja {{ i + 1 }}
+        <ul>
+          <li *ngFor="let alumno of grupo">{{ alumno }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
