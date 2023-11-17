@@ -1,0 +1,33 @@
+<div style="width: 50%">
+  <h1>Nuevo Alumno</h1>
+  <form #insertForm="ngForm">
+    <label>Id Alumno</label>
+    <input type="number" class="form-control" #cajaid name="cajaid" />
+    <label>Nombre</label>
+    <input type="text" class="form-control" #cajanombre name="cajanombre" />
+    <label>Apellidos</label>
+    <input
+      type="text"
+      class="form-control"
+      #cajaapellidos
+      name="cajaapellidos"
+    />
+    <label>Imagen</label>
+    <input type="text" class="form-control" #cajaimagen name="cajaimagen" />
+    <label>Activo</label>
+    <select class="form-control" #selectactivo name="selectactivo">
+      <option value="0">No</option>
+      <option value="1">Si</option>
+    </select>
+    <label>Id Curso</label>
+    <input
+      type="number"
+      class="form-control"
+      #cajacurso
+      name="cajacurso"
+    /><br />
+    <button class="btn btn-info" (click)="insertarAlumno()">
+      Insertar Alumno
+    </button>
+  </form>
+</div>
