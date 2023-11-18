@@ -36,21 +36,33 @@ export class GruposComponent implements OnInit {
 
   generarGrupos(): void {
     this.playAudio();
-    let tamanyoGrupos = Math.floor(this.alumnos.length / this.grupos.length);
+    const tamanyoGrupos = Math.floor(this.alumnos.length / this.grupos.length);
+    const resto = this.alumnos.length % this.grupos.length;
     let intervalo = setInterval(() => {
       let index = Math.floor(Math.random() * this.alumnos.length);
       let alumno: Alumno = this.alumnos[index];
       this.alumnos.splice(index, 1);
       while (this.alumnos.length >= 0) {
-        let indexGroup = Math.floor(Math.random() * this.grupos.length);
+        let indexG = Math.floor(Math.random() * this.grupos.length);
         if (this.alumnos.length == 0) {
-          this.grupos[indexGroup].push(`${alumno.nombre} ${alumno.apellidos}`);
+          resto === 0
+            ? (indexG = this.grupos.findIndex(
+                (grupo) => grupo.length < tamanyoGrupos
+              ))
+            : (indexG = this.grupos.findIndex(
+                (grupo) => grupo.length < tamanyoGrupos + 1
+              ));
+          this.grupos[indexG].push(`${alumno.nombre} ${alumno.apellidos}`);
           clearInterval(intervalo);
           break;
-        } else if (this.grupos[indexGroup].length < tamanyoGrupos) {
-          this.grupos[indexGroup].push(`${alumno.nombre} ${alumno.apellidos}`);
-          if (this.grupos[indexGroup].length == tamanyoGrupos + 1)
-            tamanyoGrupos--;
+        } else if (
+          this.alumnos.length < resto &&
+          this.grupos[indexG].length < tamanyoGrupos + 1
+        ) {
+          this.grupos[indexG].push(`${alumno.nombre} ${alumno.apellidos}`);
+          break;
+        } else if (this.grupos[indexG].length < tamanyoGrupos) {
+          this.grupos[indexG].push(`${alumno.nombre} ${alumno.apellidos}`);
           break;
         }
       }

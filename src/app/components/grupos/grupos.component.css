@@ -1,12 +1,11 @@
 body,
 html {
-  height: 100%;
   margin: 0;
+  height: 100vh;
 }
 
 #contenedor-principal {
   display: flex;
-  height: 100vh; /* 100% de la altura de la ventana */
 }
 
 #izquierda {
@@ -24,10 +23,9 @@ html {
 }
 .cajaul {
   width: 80%;
-  height: 70%;
+  height: auto;
   background-color: #34495e;
   margin: auto;
-  padding-top: 10px;
 }
 
 #contenedor-botones {
