@@ -19,10 +19,10 @@
   <div id="derecha">
     <!-- Contenido del div derecho -->
     <h2>Alumnos restantes: {{ this.alumnos.length }}</h2>
-    <div class="calumnosgrande">
-      <div class="caja" *ngFor="let grupo of grupos; let i = index">
-        Caja {{ i + 1 }}
-        <ul>
+    <div class="calumnosgrande row">
+      <div class="caja col-6 w-75" *ngFor="let grupo of grupos; let i = index">
+        <span class="fw-bold text-decoration-underline">Caja {{ i + 1 }}</span>
+        <ul class="list-unstyled">
           <li *ngFor="let alumno of grupo">{{ alumno }}</li>
         </ul>
       </div>

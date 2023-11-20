@@ -21,11 +21,14 @@ html {
   color: white;
   padding: 20px;
 }
+
 .cajaul {
   width: 80%;
   height: auto;
   background-color: #34495e;
   margin: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 #contenedor-botones {
@@ -43,6 +46,7 @@ html {
   cursor: pointer;
   width: 80%;
 }
+
 #contenedor-botones button:hover {
   background-color: #34495e; /* Cambia el color de fondo en hover */
 }
@@ -65,7 +69,6 @@ html {
   padding: 10px;
   text-align: center;
   margin: 30px;
-  width: 250px;
-  height: 200px;
+  height: auto;
   border: 2px solid black;
 }
